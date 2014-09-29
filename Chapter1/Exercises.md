@@ -13,10 +13,10 @@
 	* **Target Function**: Maps pixel values to a digit label
 	* **Dataset**: Encoded images of handwritten digits with (hand-coded) labels. 
 * Spam Detection: 
-	* **Input space**: variables about relevant features of medical history; variables about presence/absence or intensity of relevant symptoms
-	* **Output space**:
-	* **Target Function**:
-	* **Dataset**:
+	* **Input space**: (vectorized) raw text of spam and ham messages (e.g. based on possibly-restricted bag of words)
+	* **Output space**: {'spam', 'ham'} labels
+	* **Target Function**: mapping from word presence/absences to labelings
+	* **Dataset**: sample of spam and ham messages
 * Medical diagnosis: 
 	* **Input space**: variables about relevant features of medical history; variables about presence/absence or intensity of relevant symptoms
 	* **Output space**:
@@ -31,8 +31,23 @@
 
 **(1.3)**
 
+See written work
 
 **(1.4)**
 
-See script. 
+See `Perceptron.py` script. 
 
+**(1.5)**
+
+Which of the following problems are more sutied for the learning approach and which are more suited for the design approach?
+
+* Learning approach: a, c, e
+* Design approach: b, d
+
+**(1.6)**
+
+a. Supervised
+b. Reinforcement
+c. Supervised if you have labels, otherwise unsupervised
+d. Reinforcement?
+e. Supervised…?
