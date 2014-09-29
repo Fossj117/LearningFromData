@@ -6,8 +6,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class Perceptron(object): 
+    """
+    PERCEPTRON LEARNING ALGORITHM
+    """
     
-
     def __init__(self, dim=2, N=20, bounds=(-10, 10)):
         """
         Initialize the perceptron learning situation
@@ -54,6 +56,9 @@ class Perceptron(object):
 
     def activate(self, w, data):
         """
+        For the given w and data point(s), return the label given
+        by the perceptron.
+
         INPUT: 
             w : numpy array of shape (dim+1,)
             data : np array of shape (N, dim+1)
@@ -66,25 +71,41 @@ class Perceptron(object):
         return np.array([1 if act > 0 else -1 for act in dots.sum(axis=1)])
 
 
-    def train(self, labels):
+    def train(self):
         """
         Run the perceptron learning algorithm
         """
 
         # randomly initialize the w value. 
-        w = np.random.uniform(self.lb, self.ub, dim+1)
+        w = np.random.uniform(self.lb, self.ub, self.dim+1)
 
+        # labelings
         current_labels = self.activate(w, self.data)
-        true_labels = labels
+        true_labels = self.true_labels
 
-        while not all(current_labels = true_labels):
+        n_iterations = 1
+
         # while haven't yet converged
+        while not all(current_labels == true_labels):
+
+            print "number of iterations: %d" % n_iterations
 
             # indices that are currently missed
-            missed_inds = np.where(current_labels != true_labels)
+            missed_inds = np.where(current_labels != true_labels)[0]
 
             # choose a random missed index
             chosen_ind = np.random.choice(missed_inds, 1)
+            chosen_x = self.data[chosen_ind]
+            chosen_y = true_labels[chosen_ind]
+
+            # update current w value and labelings
+            w = w + chosen_y*chosen_x
+            current_labels = self.activate(w, self.data)
+
+            print "Current:", current_labels
+            print "True   :", true_labels
+
+            n_iterations+= 1
 
     def plot(self):
         """
