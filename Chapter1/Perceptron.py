@@ -3,6 +3,7 @@ Answer for Exercise 1.4
 """
 
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 class Perceptron(object): 
@@ -88,8 +89,6 @@ class Perceptron(object):
         # while haven't yet converged
         while not all(current_labels == true_labels):
 
-            print "number of iterations: %d" % n_iterations
-
             # indices that are currently missed
             missed_inds = np.where(current_labels != true_labels)[0]
 
@@ -102,10 +101,13 @@ class Perceptron(object):
             w = w + chosen_y*chosen_x
             current_labels = self.activate(w, self.data)
 
-            print "Current:", current_labels
-            print "True   :", true_labels
+            # print "Current:", current_labels
+            # print "True   :", true_labels
 
             n_iterations+= 1
+
+        print "%d" % n_iterations
+        return self.true_w, w, n_iterations
 
     def plot(self):
         """
@@ -113,6 +115,11 @@ class Perceptron(object):
         """
         pass
 
+if __name__ == "__main__":
+
+    # generate a thousand perceptrons
+    perceps = [Perceptron() for i in xrange(0,1000)]
+    train_dat = pd.DataFrame([p.train() for p in perceps])
 
 
 
