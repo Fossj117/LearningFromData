@@ -47,10 +47,14 @@ Which of the following problems are more sutied for the learning approach and wh
 **(1.6)**
 
 a. Supervised
+
 b. Reinforcement
+
 c. Supervised if you have labels, otherwise unsupervised
+
 d. Reinforcement?
-e. Supervised…?
+
+  e. Supervised…?
 
 **(1.7)**
 
