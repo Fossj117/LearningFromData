@@ -51,3 +51,41 @@ b. Reinforcement
 c. Supervised if you have labels, otherwise unsupervised
 d. Reinforcement?
 e. Supervised…?
+
+**(1.7)**
+
+Amount of agreement: number of f's  
+
+(a) 
+
+* 3: 1
+* 2: 3
+* 1: 3
+* 0: 1
+
+(b)
+
+* 3: 1
+* 2: 3
+* 1: 3
+* 0: 1
+
+©
+
+* 3: 1
+* 2: 3
+* 1: 3
+* 0: 1
+
+(d) Not going to actually do this one, but easy to prove that it will have the same distribution as all of the others. 
+
+Why? 
+
+Algo picks some pattern, given the training set: (d1, d2, d3). In the test set, we have all possible unique three digit binary combos. How many agree on all three? Only one: d1, d2, d3. How many disagree on all three? Only one: ~d1, ~d2, ~d3. How many agree on 2 out of 3? 3 choose 1 = 3. How many agree on 1 out of 3? 3 choose 2 = 3. 
+
+
+
+
+
+
+
