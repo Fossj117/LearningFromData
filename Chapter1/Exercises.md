@@ -83,6 +83,36 @@ Why?
 
 Algo picks some pattern, given the training set: (d1, d2, d3). In the test set, we have all possible unique three digit binary combos. How many agree on all three? Only one: d1, d2, d3. How many disagree on all three? Only one: ~d1, ~d2, ~d3. How many agree on 2 out of 3? 3 choose 1 = 3. How many agree on 1 out of 3? 3 choose 2 = 3. 
 
+**(1.8)**
+
+In R:
+
+```
+> (0.1)^10 + 10*(0.9)*(0.1^9)
+[1] 9.1e-09
+```
+
+or: 
+
+```
+> pbinom(1, 10, 0.9) 
+[1] 9.1e-09
+```
+
+**(1.9)**
+
+```
+In [9]: import numpy as np
+
+In [10]: def Hoeffding_Bound(eps, N):
+    return 2*np.exp(-2*(eps**2)*N)
+   ....: 
+
+In [11]: Hoeffding_Bound(eps=0.9-0.1, N=10)
+Out[11]: 5.521545144074388e-06
+```
+
+So Hoeffding bound is larger than the true probability for this particular case. I.e. it is not a very "tight" bound on the probability that `u` and `v` differ by the given amount (in this case)
 
 
 
