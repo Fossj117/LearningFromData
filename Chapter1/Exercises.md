@@ -118,6 +118,10 @@ Out[11]: 5.521545144074388e-06
 
 So Hoeffding bound is larger than the true probability for this particular case. I.e. it is not a very "tight" bound on the probability that `u` and `v` differ by the given amount (in this case)
 
+```
+P[h(x)≠y]=P[h(x)≠y|y=f(x)]P[y=f(x)]+P[h(x)≠y|y≠f(x)]P[y≠f(x)]=μλ+P[h(x)≠y|y≠f(x)](1−λ)
+```
+
 
 
 
